@@ -1,0 +1,32 @@
+{
+  "name": "ycopy",
+  "version": "0.1.0",
+  "description": "A cli for copy files and folders",
+  "main": "index.js",
+  "author": "TomeOkin",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "yargs": "^11.0.0"
+  },
+  "bin": {
+    "ycopy": "ycopy.js"
+  },
+  "scripts": {
+    "test-ycopy": "node ./ycopy.js test/a test/another/a -f .*\\.txt .*\\.jpg -r [^^c]$ -d -i",
+    "test": "npm run test-ycopy",
+    "test-help": "node ./ycopy.js --help"
+  },
+  "keywords": [
+    "cp",
+    "copy",
+    "cli",
+    "file",
+    "folder",
+    "dir"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CTWorld/ycopy.git"
+  }
+}
