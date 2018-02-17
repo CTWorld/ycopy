@@ -10,7 +10,7 @@ var argv = require('yargs')
   .option('e', {
     alias : 'errorOnExist',
     demand: false,
-    default: true,
+    default: false,
     describe: 'When overwrite is false and the destination exists, throw an error. Default is false.'
   })
   .option('s', {
@@ -67,6 +67,8 @@ if (argv._.length < 2) {
   const fdRegexs = fromFilters(argv.r);
   const showLog = argv.i;
 
+  showLog && console.log(`src: ${src}`);
+  showLog && console.log(`dest: ${dest}`);
   showLog && argv.f.length > 0 && console.info(`file-filters: ${argv.f}`);
   showLog && argv.r.length > 0 && console.info(`folder-filters: ${argv.r}`);
 

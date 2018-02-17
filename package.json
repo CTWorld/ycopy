@@ -1,6 +1,6 @@
 {
   "name": "ycopy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A cli for copy files and folders",
   "main": "index.js",
   "author": "TomeOkin",
