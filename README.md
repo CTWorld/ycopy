@@ -32,12 +32,10 @@ ycopy [src] [dest] [options] [-f] [file-filters] [-r] [folder-filters]
 ## Example
 
 ```` bash
-ycopy test/a test/another/a -f .*.txt .*.jpg -r [^^c]$ -d
+ycopy test/a test/another/a -f .*\.txt .*\.jpg -r "^((?!cd$).)*$" -d -i
 ````
 
-copy files and folders from test/a to test/another/a, which file is end with .txt or .jpg and folder is not containt character 'c'.
-
-**For some reason, you need to replace `^^` with `^`, as the example above. When somehing are out of expect, you can check the param with option `-i`**
+copy files and folders from test/a to test/another/a, which file is end with .txt or .jpg and folder is not end with sequence 'cd'.
 
 [npm-url]: https://www.npmjs.com/package/ycopy
 [npm-image]: https://img.shields.io/npm/v/ycopy.svg

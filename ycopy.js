@@ -66,22 +66,20 @@ if (argv._.length < 2) {
   const ffRegexs = fromFilters(argv.f);
   const fdRegexs = fromFilters(argv.r);
   const showLog = argv.i;
+  const path = require("path");
 
-  showLog && console.log(`src: ${src}`);
-  showLog && console.log(`dest: ${dest}`);
+  showLog && console.log(`src: ${path.resolve(src)}`);
+  showLog && console.log(`dest: ${path.resolve(dest)}`);
   showLog && argv.f.length > 0 && console.info(`file-filters: ${argv.f}`);
   showLog && argv.r.length > 0 && console.info(`folder-filters: ${argv.r}`);
 
   const fs = require('fs-extra');
   const nfs = require("fs");
   const filterFunc = (src, dest) => {
-    if (ffRegexs.length == 0) {
-      return true;
+    if (nfs.statSync(src).isDirectory()) {
+      return fdRegexs.length == 0 || regexTest(fdRegexs, src);
     } else {
-      if (nfs.statSync(src).isDirectory()) {
-        return fdRegexs.length == 0 || regexTest(fdRegexs, src);
-      }
-      return regexTest(ffRegexs, src);
+      return ffRegexs.length == 0 || regexTest(ffRegexs, src);
     }
   }
 

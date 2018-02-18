@@ -1,6 +1,6 @@
 {
   "name": "ycopy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A cli for copy files and folders",
   "main": "index.js",
   "author": "TomeOkin",
@@ -13,7 +13,7 @@
     "ycopy": "ycopy.js"
   },
   "scripts": {
-    "test-ycopy": "node ./ycopy.js test/a test/another/a -f .*\\.txt .*\\.jpg -r [^^c]$ -d -i",
+    "test-ycopy": "node ./ycopy.js test/a test/another/a -f .*\\.txt .*\\.jpg -r \"^((?!cd$).)*$\" -d -i",
     "test": "npm run test-ycopy",
     "test-help": "node ./ycopy.js --help"
   },
